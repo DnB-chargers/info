@@ -2,8 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Энергетическая революция для городского транспорта</title>
+    
+    
     <style>
         body {
             background-image: url('background1.jpg'); /* Замените 'background.jpg' на путь к вашему изображению */
@@ -189,17 +191,20 @@
     </header>
 
 
-    <!-- Меню -->
     <nav>
-        <a href="#about">О проекте</a>
-        <a href="#advantages">Преимущества</a>
-        <a href="#features">Технические характеристики</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#reviews">Социальный вклад</a>
-        <a href="#partners">Пользователи и их удобство</a>
-        <a href="#plans">Планы развития</a>
-        <a href="#contact">Контакты</a>
+        <button id="menu-toggle" aria-label="Открыть меню">☰</button>
+        <div id="menu-links">
+            <a href="#about">О проекте</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#features">Технические характеристики</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#reviews">Социальный вклад</a>
+            <a href="#partners">Пользователи и их удобство</a>
+            <a href="#plans">Планы развития</a>
+            <a href="#contact">Контакты</a>
+        </div>
     </nav>
+    
 
     <!-- Основной контент -->
     <main>
@@ -253,29 +258,38 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Мощность</td>
-                            <td>От 5 до 30 Вт</td>
+                            <td data-label="Характеристика">Мощность</td>
+                            <td data-label="Описание">От 5 до 30 Вт</td>
                         </tr>
                         <tr>
-                            <td>Энергоэффективность</td>
-                            <td>Зарядные станции разработаны с акцентом на минимальное энергопотребление и использование экономичных компонентов, что снижает нагрузку на энергосети транспортных систем.</td>
+                            <td data-label="Характеристика">Энергоэффективность</td>
+                            <td data-label="Описание">
+                                Зарядные станции разработаны с акцентом на минимальное энергопотребление.
+                            </td>
                         </tr>
                         <tr>
-                            <td>Подключение</td>
-                            <td>Зарядные станции совместимы с популярными стандартами подключения, включая Micro-USB, Lightning и Type-C. Это гарантирует, что пассажиры смогут подключить практически любое устройство.</td>
+                            <td data-label="Характеристика">Подключение</td>
+                            <td data-label="Описание">Совместимы с Micro-USB, Lightning и Type-C.</td>
                         </tr>
                         <tr>
-                            <td>Компактный и эргономичный дизайн</td>
-                            <td>Конструкция зарядных модулей минимизирует занимаемое пространство, что позволяет их удобную интеграцию внутри вагонов общественного транспорта.</td>
+                            <td data-label="Характеристика">Компактный дизайн</td>
+                            <td data-label="Описание">
+                                Конструкция минимизирует занимаемое пространство.
+                            </td>
                         </tr>
                         <tr>
-                            <td>Система безопасности и защиты</td>
-                            <td>Встроенная защита от короткого замыкания, перегрева и скачков напряжения обеспечивает безопасную эксплуатацию станции даже в условиях интенсивного использования.</td>
+                            <td data-label="Характеристика">Система защиты</td>
+                            <td data-label="Описание">
+                                Встроенная защита от короткого замыкания и перегрева.
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+                
+                
             </div>
         </section>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 
         <!-- Галерея -->
@@ -343,7 +357,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>DnB</title>
         <style>
             /* Стили для модального окна */

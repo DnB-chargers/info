@@ -1,0 +1,136 @@
+body {
+    font-size: 16px; /* заменить */
+    font-size: 1rem; /* использовать относительное значение */
+}
+main {
+    max-width: 1200px; /* фиксированная ширина */
+    width: 90%; /* адаптивная ширина */
+    margin: 0 auto;
+}
+/* Общие стили для всех экранов */
+body {
+    font-size: 1rem;
+}
+
+header h1 {
+    font-size: 2rem; /* Стандартный размер */
+}
+
+/* Стили для экранов меньше 768px (планшеты и мобильные устройства) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem; /* Уменьшаем заголовок */
+    }
+
+    nav a {
+        font-size: 1rem; /* Меняем размер ссылок меню */
+        margin: 0 10px;  /* Уменьшаем отступы */
+    }
+
+    .advantages {
+        flex-direction: column; /* Вертикальное расположение блоков */
+    }
+
+    .advantage {
+        flex: 1 1 100%; /* Занимает 100% ширины */
+    }
+}
+
+/* Стили для экранов меньше 480px (мобильные устройства) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    .gallery img {
+        border-radius: 5px; /* Меньше скругление */
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* Стили для адаптивной таблицы */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    thead {
+        display: none;
+    }
+    tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd; /* Тонкая рамка */
+        border-radius: 5px;
+        padding: 8px;
+        background-color: #f9f9f9; /* Светлый фон для выделения */
+    }
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0; /* Уменьшенные отступы */
+        font-size: 14px; /* Меньший текст для мобильных */
+    }
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        flex-basis: 35%; /* Сокращённое пространство для заголовка */
+        color: #333;
+        padding-right: 10px;
+    }
+    tbody td:last-child {
+        text-align: right; /* Выравнивание значений */
+    }
+}
+
+/* Скрываем ссылки меню для мобильных устройств */
+#menu-links {
+    display: none;
+    flex-direction: column; /* Вертикальный список */
+    gap: 10px;
+    background-color: #555;
+    padding: 20px;
+}
+
+#menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #0fe30f;
+    cursor: pointer;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 9999px) {
+    #menu-toggle {
+        display: block; /* Показываем кнопку */
+    }
+
+    #menu-links {
+        display: none; /* Меню скрыто по умолчанию */
+    }
+
+    #menu-links.active {
+        display: flex; /* Показываем меню, если класс active */
+    }
+}
+@media (max-width: 768px) {
+    /* Стили для мобильных устройств */
+    .container {
+        padding: 10px;  /* Меньше отступов для мобильных */
+    }
+
+    header, section, footer {
+        text-align: center; /* Центровка контента в секциях */
+        padding: 10px;      /* Добавим отступы */
+    }
+}
+

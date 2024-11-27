@@ -133,4 +133,17 @@ img {
         padding: 10px;      /* Добавим отступы */
     }
 }
+/* Для пк*/
+@media (max-width: 1080px) {
+    #menu-toggle {
+        display: block; /* Показываем кнопку */
+    }
 
+    #menu-links {
+        display: none; /* Меню скрыто по умолчанию */
+    }
+
+    #menu-links.active {
+        display: flex; /* Показываем меню, если класс active */
+    }
+}

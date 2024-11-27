@@ -109,7 +109,7 @@ img {
 }
 
 /* Для мобильных устройств */
-@media (max-width: 9999px) {
+@media (max-width: 768px) {
     #menu-toggle {
         display: block; /* Показываем кнопку */
     }

@@ -140,7 +140,7 @@ img {
     }
 
     #menu-links {
-        display: block; /* Меню скрыто по умолчанию */
+        display: none; /* Меню скрыто по умолчанию */
     }
 
     #menu-links.active {

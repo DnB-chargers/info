@@ -29,12 +29,32 @@
         }   
 
         header {
-            background-color: #444; /* Серый для шапки */
+            background-image: url('background.jpg'); /* Фон для шапки */
+            background-size: cover; /* Масштабирует изображение */
+            background-position: center; /* Центрирует фон */
+            background-repeat: no-repeat; /* Изображение не повторяется */
             color: #fff;
             padding: 20px 10px;
             text-align: center;
+            height: 250px; /* Высота шапки */
+            position: relative; /* Для позиционирования текста поверх фона */
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный затемняющий слой */
+            z-index: 1;
         }
 
+        header h1, header p {
+            position: relative;
+            z-index: 2; /* Поверх затемняющего слоя */
+            margin: 0;
+        }
         header h1 {
             margin: 0;
             font-size: 3rem;
@@ -49,34 +69,100 @@
             margin: 5px 0 0;
             font-size: 1.5rem;
             text-shadow: 
-            2px 2px 0px #000000,  /* Красная окаймка справа */
-            -2px -2px 0px #000000, /* Красная окаймка слева */
-            2px -2px 0px #000000,  /* Красная окаймка сверху */
-            -2px 2px 0px #000000;  /* Красная окаймка снизу */
+            1px 1px 0px #000000,  /* Красная окаймка справа */
+            -1px -1px 0px #000000, /* Красная окаймка слева */
+            1px -1px 0px #000000,  /* Красная окаймка сверху */
+            -1px 1px 0px #000000;  /* Красная окаймка снизу */
         }
 
         nav {
-            background-color: #555; /* Тёмно-серый для меню */
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон, как у header */
+            background-image: url('background.jpg'); /* Повторяет фон шапки */
+            background-size: cover; /* Заполнение фона */
+            background-position: center;
+            color: #fff;
             display: flex;
             justify-content: center;
-            padding: 15px 0;
-            
+            padding: 10px 0;
+        }
+        header {
+            margin-bottom: 0; /* Убираем разрыв между header и nav */
+        }
+
+        /* Стили для кнопки меню */
+        .menu-button {
+            position: fixed; /* Фиксируем кнопку в одном месте */
+            top: 20px; /* Расстояние от верхнего края страницы */
+            left: 20px; /* Расстояние от левого края страницы */
+            width: 50px; /* Ширина круга */
+            height: 50px; /* Высота круга */
+            background-color: #fff; /* Белый фон */
+            border: 2px solid #ddd; /* Светлая рамка вокруг кнопки */
+            border-radius: 50%; /* Делает кнопку круглой */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+            display: flex; /* Выравнивание содержимого */
+            align-items: center; /* Центрирование по вертикали */
+            justify-content: center; /* Центрирование по горизонтали */
+            cursor: pointer; /* Курсор в виде руки при наведении */
+            z-index: 1000; /* Кнопка будет поверх всего остального контента */
+        }
+
+        /* Иконка внутри кнопки */
+        .menu-button span {
+            display: block;
+            width: 25px; /* Ширина линий */
+            height: 3px; /* Толщина линий */
+            background-color: #333; /* Цвет линий */
+            position: relative; /* Для управления внутренними линиями */
+        }
+
+        /* Верхняя линия */
+        .menu-button span::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            top: -8px; /* Смещаем верхнюю линию */
+            left: 0;
+        }
+
+        /* Нижняя линия */
+        .menu-button span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            bottom: -8px; /* Смещаем нижнюю линию */
+            left: 0;
+        }
+
+        /* Навигационное меню */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный чёрный фон */
+            transform: translateX(-100%); /* Прячем меню за левым краем */
+            transition: transform 0.3s ease; /* Плавное появление меню */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav.active {
+            transform: translateX(0); /* Показываем меню */
         }
 
         nav a {
-            color: #0fe30f; /* Светлый зеленый */
+            color: #fff;
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.2rem;
-            text-shadow: 
-            0.4px 0.4px 0px #ffffff,  /* Красная окаймка справа */
-            -0.4px -0.4px 0px #ffffff, /* Красная окаймка слева */
-            0.4px -0.4px 0px #ffffff,  /* Красная окаймка сверху */
-            -0.4px 0.4px 0px #ffffff;  /* Красная окаймка снизу */
-        }
-
-        nav a:hover {
-            color: #A2D9CE; /* Салатовый */
+            font-size: 1.5rem;
+            margin: 10px 0;
         }
 
         main {
@@ -97,10 +183,10 @@
             display: inline-block;
             padding-bottom: 10px;
             text-shadow: 
-            2px 2px 0px #000000,  /* Красная окаймка справа */
-            -2px -2px 0px #000000, /* Красная окаймка слева */
-            2px -2px 0px #000000,  /* Красная окаймка сверху */
-            -2px 2px 0px #000000;  /* Красная окаймка снизу */
+            1px 1px 0px #000000,  /* Красная окаймка справа */
+            -1px -1px 0px #000000, /* Красная окаймка слева */
+            1px -1px 0px #000000,  /* Красная окаймка сверху */
+            -1px 1px 0px #000000;  /* Красная окаймка снизу */
         }
 
         .content {
@@ -190,10 +276,81 @@
         <p>Быстрая и удобная зарядка там, где это нужно</p>
     </header>
 
-
-    <nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Меню в белом круге</title>
+        <style>
+            /* Сброс базовых стилей */
+            body, h1, h2, h3, p, a, button {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+    
+            body {
+                background: url('background1.jpg') no-repeat center center/cover;
+                line-height: 1.6;
+            }
+    
+            /* Кнопка меню */
+            #menu-toggle {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                background-color: #fff;
+                border: 2px solid #ddd;
+                border-radius: 50%;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 1000;
+            }
+    
+            /* Навигационное меню */
+            #menu-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #1e1e1e, #66CDAA); /* Градиентный фон */
+                display: none; /* Изначально скрыто */
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+            }
+    
+            /* Активное меню */
+            #menu-links.active {
+                display: flex; /* Показываем меню */
+            }
+    
+            #menu-links a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 1.5rem;
+                margin: 10px 0;
+                transition: color 0.3s ease;
+            }
+    
+            #menu-links a:hover {
+                color: #FFDD57; /* Жёлтый при наведении */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Кнопка меню -->
         <button id="menu-toggle" aria-label="Открыть меню">☰</button>
-        <div id="menu-links">
+        
+        <!-- Навигационное меню -->
+        <nav id="menu-links">
             <a href="#about">О проекте</a>
             <a href="#advantages">Преимущества</a>
             <a href="#features">Технические характеристики</a>
@@ -202,9 +359,29 @@
             <a href="#partners">Пользователи и их удобство</a>
             <a href="#plans">Планы развития</a>
             <a href="#contact">Контакты</a>
-        </div>
-    </nav>
+        </nav>
     
+        <script>
+            // Находим элементы кнопки, меню и ссылки
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuLinks = document.getElementById('menu-links');
+            const menuItems = document.querySelectorAll('#menu-links a'); // Все ссылки внутри меню
+    
+            // Открытие/закрытие меню при клике на кнопку
+            menuToggle.addEventListener('click', () => {
+                menuLinks.classList.toggle('active');
+            });
+    
+            // Закрытие меню при клике на любую из ссылок
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menuLinks.classList.remove('active'); // Убираем класс active
+                });
+            });
+        </script>
+    
+
+        
 
     <!-- Основной контент -->
     <main>
@@ -391,23 +568,26 @@
             }
     
             /* Стили для футера */
-            footer {
-                background-color: #333;
-                color: #fff;
-                text-align: center;
-                padding: 30px 15px;
-                margin-top: 40px;
-            }
-    
-            footer a {
-                color: #66CDAA;
-                text-decoration: none;
-            }
-    
-            footer a:hover {
-                color: #A2D9CE;
-            }
-        </style>
+        footer {
+            background-image: url('background.jpg'); /* Путь к вашему изображению */
+            background-size: cover; /* Покрытие всего пространства */
+            background-position: center; /* Центрирование изображения */
+            color: white; /* Цвет текста */
+            text-align: center; /* Центрирование текста */
+            padding: 40px 10px; /* Отступы */
+            font-size: 14px; /* Размер шрифта */
+        }
+
+        footer a {
+            color: #00FF7F; /* Цвет ссылок */
+            text-decoration: none; /* Убираем подчёркивание */
+        }
+
+        footer a:hover {
+            text-decoration: underline; /* Подчёркивание при наведении */
+        }
+
+    </style>
     </head>
     <body>
     
